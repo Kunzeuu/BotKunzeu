@@ -15,7 +15,7 @@ module.exports = {
 
       // Llama a la función para obtener el precio de venta de cada objeto
       await Promise.all(itemIds.map(async (itemId) => {
-      const objeto = await getGw2ApiData(`commerce/prices/${itemId}`, 'es');
+        const objeto = await getGw2ApiData(`commerce/prices/${itemId}`, 'es');
         if (objeto && objeto.sells) {
           totalPrecioVenta += objeto.sells.unit_price * stackSize;
         }
@@ -23,6 +23,17 @@ module.exports = {
 
       // Calcula el 90% del precio total
       const precioTotal90 = totalPrecioVenta * 0.9;
+
+      // Agrega el ID del objeto de ectos al arreglo de itemIds y realiza el cálculo del precio de ectos al 90%
+      const ectosId = 19721;
+      const ectosObjeto = await getGw2ApiData(`commerce/prices/${ectosId}`, 'es');
+      let precioEctos90 = 0;
+      if (ectosObjeto && ectosObjeto.sells) {
+        precioEctos90 = ectosObjeto.sells.unit_price * stackSize * 0.9;
+      }
+
+      // Calcula la cantidad de ectos a dar/recibir
+      const cantidadEctos = Math.ceil(precioTotal90 / (precioEctos90 / stackSize));
 
       // Calcula el número de monedas (oro, plata y cobre) y agrega los emotes correspondientes
       const calcularMonedas = (precio) => {
@@ -32,9 +43,14 @@ module.exports = {
         return `${oro} <:gold:1134754786705674290> ${plata} <:silver:1134756015691268106> ${cobre} <:Copper:1134756013195661353>`;
       };
 
+      // Calcula la cantidad de stacks y ectos adicionales
+      const numStacksEctos = Math.floor(cantidadEctos / stackSize);
+      const ectosAdicionales = cantidadEctos % stackSize;
+      const ectosRequeridos = cantidadEctos > 0 ? cantidadEctos : 0;
+
       const embed = {
         title: 'Precio total de los materiales T6',
-        description: `El precio total al 100% de los materiales T6 es: ${calcularMonedas(totalPrecioVenta)}.\nEl precio total al 90% de los materiales T6 es: ${calcularMonedas(precioTotal90.toFixed(0))}.`,
+        description: `El precio total al 100% de los materiales T6 es: ${calcularMonedas(totalPrecioVenta)}.\nEl precio total al 90% de los materiales T6 (incluyendo ectos) es: ${calcularMonedas(precioEctos90.toFixed(0))}.\n\n**Ectos a dar/recibir**: ${numStacksEctos} stack${numStacksEctos === 1 ? '' : 's'} y ${ectosAdicionales} adicionales (Total: ${ectosRequeridos} <:glob:1134942274598490292>)`,
         color: 0xffc0cb, // Color del borde del Embed (opcional, puedes cambiarlo o quitarlo)
       };
 
