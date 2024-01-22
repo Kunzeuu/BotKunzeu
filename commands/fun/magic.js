@@ -3,7 +3,7 @@ const { getGw2ApiData } = require('../utility/api.js'); // Ajusta la ruta según
 
 module.exports = {
   data: new SlashCommandBuilder()
-    .setName('magia')
+    .setName('magic')
     .setDescription('Calcula el precio total de una lista de materiales.'),
 
   async execute(interaction) {
