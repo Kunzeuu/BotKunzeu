@@ -176,8 +176,9 @@ const itemsMap = new Map([
   [71581, {mainName:  'Memory of Battle', altNames: ['Memoria', 'Memoria de Batalla', 'WvW']}],
   [77604, {mainName:  'Wintersday Gift', altNames: ['Navidad', 'regalos', 'gift']}],
   [83410, {mainName:  'Supreme Rune of Holding', altNames: ['Holding', 'sujecion', 'Supreme']}],
-  [8920, {mainName:  'Heavy Loot Bag  ', altNames: ['Saco de botín pesado  ', 'Loot', 'Heavy']}],
-  [70820, {mainName:  'Shard of Glory  ', altNames: ['Gloria', 'Esquirla de gloria  ', 'PvP']}],
+  [8920, {mainName:  'Heavy Loot Bag', altNames: ['Saco de botín pesado  ', 'Loot', 'Heavy']}],
+  [70820, {mainName:  'Shard of Glory', altNames: ['Gloria', 'Esquirla de gloria  ', 'PvP']}],
+  [68646, {mainName: 'Divine Lucky Envelope', altNames: ['DLE', 'Sobre de la suerte divino']}]
 ]);
 
 
