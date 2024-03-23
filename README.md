@@ -30,7 +30,7 @@ Kunzeu Bot is a Discord bot dedicated to Guild Wars 2 players. It utilizes the G
 - **`/t5`:** Este comando te ayudará a ver el valor total de los objetos de nivel T5.
 - **`/t6`:** Este comando te ayudará a ver el valor total de los objetos de nivel T6.
 - **`/clovers`:** Este comando te permite conocer el precio de un trébol en este momento. Actualmente, calcula el valor de un trébol.
-- **`/tp`:** Este comando te permite ver la cantidad de objetos que tienes en entrega.
+- **`/delivery`:** Este comando te permite ver la cantidad de objetos que tienes en entrega.
 - **`/gem`:** Este comando te permite ver el precio de las gemas (aún en prueba).
 - **`/might`:** Este comando te permite ver el precio del Regalo del Poder.
 - **`/magic`:** Este comando te permite ver el precio del Regalo de la Magia.
