@@ -4,17 +4,17 @@ const { deleteUserApiKey } = require('../utility/db');
 module.exports = {
   data: new SlashCommandBuilder()
     .setName('apidel')
-    .setDescription('Elimina tu API key de GW2.'),
+    .setDescription('Delete your GW2 API key.'),
 
   async execute(interaction) {
     const userId = interaction.user.id;
 
     try {
       await deleteUserApiKey(userId);
-      await interaction.reply({ content: 'API key eliminada exitosamente.', ephemeral: true });
+      await interaction.reply({ content: 'API key successfully deleted.', ephemeral: true });
     } catch (error) {
-      console.error('Error al eliminar la API key:', error.message);
-      await interaction.reply({ content: '¡Ups! Hubo un error al eliminar la API key.', ephemeral: true });
+      console.error('Error deleting API key:', error.message);
+      await interaction.reply({ content: 'Oops! There was an error deleting the API key.', ephemeral: true });
     }
   },
 };

@@ -4,7 +4,7 @@ const { getGw2ApiData } = require('../utility/api.js'); // Ajusta la ruta según
 module.exports = {
   data: new SlashCommandBuilder()
     .setName('t5') 
-    .setDescription('Calcula el precio total de los materiales T5.'), 
+    .setDescription('Calculate the total price of T5 materials.'), 
 
   async execute(interaction) {
     const itemIds = [24294, 24341, 24350, 24356, 24288, 24299, 24282]; 
@@ -37,15 +37,15 @@ module.exports = {
       };
 
       const embed = {
-        title: 'Precio total de los materiales T5',
-        description: `El precio total al 100% de los materiales T5 (excepto el item Montón de polvo incandescente) es: ${calcularMonedas(totalPrecioVenta)}.\nEl precio total al 90% de los materiales T5 (excepto el item Montón de polvo incandescente) es: ${calcularMonedas(precioTotal90.toFixed(0))}.`,
+        title: 'Total price of materials T5',
+        description: `The total price at 100% of the T5 materials (except for the item Pile of Incandescent Dust) is: ${calcularMonedas(totalPrecioVenta)}.\nThe total price at 90% of the T5 materials (except for the item Pile of Incandescent Dust) is: ${calcularMonedas(precioTotal90.toFixed(0))}.`,
         color: 2593204, // Color del borde del Embed (opcional, puedes cambiarlo o quitarlo)
       };
 
       await interaction.reply({ embeds: [embed] });
     } catch (error) {
-      console.error('Error al realizar la solicitud:', error.message);
-      await interaction.reply('¡Ups! Hubo un error al calcular el precio total de los materiales T5.');
+      console.error('Error when making the request:', error.message);
+      await interaction.reply('Oops! There was an error in calculating the total price of T5 materials.');
     }
   },
 };

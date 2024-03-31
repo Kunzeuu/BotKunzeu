@@ -5,7 +5,7 @@ const { getUserApiKey } = require('../utility/db');
 module.exports = {
   data: new SlashCommandBuilder()
     .setName('delivery')
-    .setDescription('Muestra los detalles del oro y los items de entrega.'),
+    .setDescription('Displays gold and item delivery details.'),
 
   async execute(interaction) {
     const userId = interaction.user.id;
@@ -14,7 +14,7 @@ module.exports = {
       const apiKey = await getUserApiKey(userId);
 
       if (!apiKey) {
-        await interaction.reply('No tienes una API key vinculada. Usa el comando /apikey para vincular una API key de Guild Wars 2.');
+        await interaction.reply('You don\'t have a linked API key. Use the /apikey command to link a Guild Wars 2 API key.');
         return;
       }
 
@@ -23,8 +23,8 @@ module.exports = {
       const embed = await formatDeliveryDetailsEmbed(deliveryDetails);
       await interaction.reply({ embeds: [embed] });
     } catch (error) {
-      console.error('Error al obtener detalles de entrega:', error.message);
-      await interaction.reply('¡Ups! Hubo un error al obtener los detalles de entrega.');
+      console.error('Error getting delivery details:', error.message);
+      await interaction.reply('Oops! There was an error getting delivery details.');
     }
   },
 };
@@ -41,7 +41,7 @@ async function getDeliveryDetails(apiKey) {
 
     return response.data;
   } catch (error) {
-    console.error('Error al obtener detalles de entrega:', error.message);
+    console.error('Error getting delivery details:', error.message);
     throw error;
   }
 }
@@ -58,18 +58,18 @@ async function formatDeliveryDetailsEmbed(details) {
 
   const embed = {
     color: 0x0099ff,
-    title: 'Detalles de entrega',
+    title: 'Delivery Details',
     thumbnail: {
-      url: 'https://wiki.guildwars2.com/images/8/81/Personal_Trader_Express.png' // URL de la imagen
+      url: 'https://wiki.guildwars2.com/images/8/81/Personal_Trader_Express.png' // Image URL
     },
     fields: [
       {
-        name: 'Oro',
+        name: 'Gold',
         value: `${gold} <:gold:1134754786705674290> ${silver} <:silver:1134756015691268106> ${copper} <:Copper:1134756013195661353>`,
       },
       {
         name: 'Items',
-        value: itemsWithNames.length > 0 ? itemsWithNames.join('\n') : 'No tienes detalles de items disponibles en este momento.',
+        value: itemsWithNames.length > 0 ? itemsWithNames.join('\n') : 'You have no item details available at the moment.',
       }
     ],
     timestamp: new Date(),
@@ -83,7 +83,7 @@ async function formatDeliveryDetailsEmbed(details) {
 }
 
 async function getItemName(itemId) {
-  const apiUrl = `https://api.guildwars2.com/v2/items/${itemId}?lang=es`;
+  const apiUrl = `https://api.guildwars2.com/v2/items/${itemId}?lang=en`;
   
   try {
     const response = await axios.get(apiUrl);
@@ -91,7 +91,7 @@ async function getItemName(itemId) {
     
     return itemDetails.name;
   } catch (error) {
-    console.error('Error al obtener el nombre del objeto desde la API:', error.message);
-    return `Item desconocido (ID: ${itemId})`;
+    console.error('Error getting item name from API:', error.message);
+    return `Unknown Item (ID: ${itemId})`;
   }
 }

@@ -3,8 +3,6 @@ const { Routes } = require('discord-api-types/v9');
 require('dotenv').config();
 
 const clientId = '1134643165735944233'; // Reemplaza TU_CLIENT_ID con el ID de tu aplicación (bot)
-const token = 'MTEzNDY0MzE2NTczNTk0NDIzMw.GjmWCq.UIMl_TLDj6MTxpUj9RGi-UxYNABHfdUme6vkCE'; // Reemplaza TU_TOKEN con el token de tu bot
-
 const commands = [
   // Aquí puedes definir los comandos que deseas registrar globalmente
   {

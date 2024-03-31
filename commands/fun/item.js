@@ -26,22 +26,22 @@ const itemsMap = new Map([
   [30702, {mainName: 'Howler', altNames: ['Aullador', 'aull'] }],
   [30703, {mainName: 'Sunrise', altNames: ['Amanecer','ama'] }],
   [30704, {mainName: 'Twilight', altNames: ['Crepusculo','crep'] }],
-  [95612, {mainName: `Aurene's Tail`, altNames: ['maza', 'Cola de Aurene'] }],
-  [95675, {mainName: "Aurene's Fang", altNames: ['espada', 'Colmillo de Aurene'] }],
-  [95808, {mainName: "Aurene's Argument", altNames: ['pistola', 'Argumento de Aurene'] }],
-  [96028, {mainName: "Aurene's Scale", altNames: ['escudo', 'Escama de Aurene'] }],
-  [96203, {mainName: "Aurene's Claw", altNames: ['daga', 'Garra de Aurene'] }],
-  [96221, {mainName: "Aurene's Wisdom", altNames: ['cetro', 'Sabiduría de Aurene'] }],
-  [96356, {mainName: "Aurene's Bite", altNames: ['mandoble', 'mand', 'Mordisco de Aurene'] }],
-  [96652, {mainName: "Aurene's Insight", altNames: ['baculo', 'Visión de Aurene'] }],
-  [96937, {mainName: "Aurene's Rending", altNames: ['hacha', 'Desgarramiento de Aurene'] }],
-  [97077, {mainName: "Aurene's Wing", altNames: ['LS','ls', 'Ala de Aurene'] }],
-  [97099, {mainName: "Aurene's Breath", altNames: ['antorcha', 'ant', 'Aliento de Aurene'] }],
-  [97165, {mainName: "Aurene's Gaze", altNames: ['foco', 'Mirada de Aurene'] }],
-  [97377, {mainName: "Aurene's Persuasion", altNames: ['rifle', 'Persuasión de Aurene'] }],
-  [97590, {mainName: "Aurene's Flight", altNames: ['LB', 'lb', 'Vuelo de Aurene'] }],
-  [95684, {mainName: `Aurene's Weight`, altNames: ['martillo', 'Peso de Aurene'] }],
-  [97783, {mainName: `Aurene's Voice`, altNames: ['Voice', 'cuerno', 'Voz de Aurene'] }],
+  [95612, {mainName: `Aurene's Tail`, altNames: ['maza', 'Cola de Aurene', 'Tail'] }],
+  [95675, {mainName: "Aurene's Fang", altNames: ['espada', 'Colmillo de Aurene', 'Fang'] }],
+  [95808, {mainName: "Aurene's Argument", altNames: ['pistola', 'Argumento de Aurene', 'Argument'] }],
+  [96028, {mainName: "Aurene's Scale", altNames: ['escudo', 'Escama de Aurene', 'Scale'] }],
+  [96203, {mainName: "Aurene's Claw", altNames: ['daga', 'Garra de Aurene', 'Claw'] }],
+  [96221, {mainName: "Aurene's Wisdom", altNames: ['cetro', 'Sabiduría de Aurene', 'Wisdom'] }],
+  [96356, {mainName: "Aurene's Bite", altNames: ['mandoble', 'mand', 'Mordisco de Aurene','Bite'] }],
+  [96652, {mainName: "Aurene's Insight", altNames: ['baculo', 'Visión de Aurene', 'Insight'] }],
+  [96937, {mainName: "Aurene's Rending", altNames: ['hacha', 'Desgarramiento de Aurene', 'Rending'] }],
+  [97077, {mainName: "Aurene's Wing", altNames: ['LS','ls', 'Ala de Aurene', 'Wing'] }],
+  [97099, {mainName: "Aurene's Breath", altNames: ['antorcha', 'ant', 'Aliento de Aurene', 'Breath'] }],
+  [97165, {mainName: "Aurene's Gaze", altNames: ['foco', 'Mirada de Aurene', 'Gaze'] }],
+  [97377, {mainName: "Aurene's Persuasion", altNames: ['rifle', 'Persuasión de Aurene', 'Persuasion'] }],
+  [97590, {mainName: "Aurene's Flight", altNames: ['LB', 'lb', 'Vuelo de Aurene','Flight'] }],
+  [95684, {mainName: `Aurene's Weight`, altNames: ['martillo', 'Peso de Aurene','Weight'] }],
+  [97783, {mainName: `Aurene's Voice`, altNames: ['Voice', 'cuerno', 'Voz de Aurene', 'Voice'] }],
   [96978, {mainName: 'Antique Summoning Stone', altNames: ['ASS', 'ass'] }],
   [96722, {mainName: 'Jade Runestone', altNames: ['runestone', 'jade'] }],
   [96347, {mainName: 'Chunk of Ancient Ambergris', altNames: ['Amber', 'amber'] }],
@@ -70,31 +70,31 @@ const itemsMap = new Map([
   [29183, {mainName: 'Venom', altNames: ['Veneno']}],
   [29184, {mainName: 'Howl', altNames: ['Aullido']}],
   [29185, {mainName: 'Dusk', altNames: ['Anochecer']}],
-  [48917, {mainName: 'Toxic Focusing Crystal', altNames: ['Cristal']}],
-  [89216, {mainName: 'Charm of Skill', altNames: ['Habilidad']}],
-  [89258, {mainName: 'Charm of Potence', altNames: ['Potencia']}],
-  [89103, {mainName: 'Charm of Brilliance', altNames: ['Brillantez']}],
-  [89141, {mainName: 'Símbolo de mejora', altNames: ['Mejora']}],
-  [89182, {mainName: 'Símbolo de dolor', altNames: ['Dolor']}],
+  [48917, {mainName: 'Toxic Focusing Crystal', altNames: ['Cristal', 'Crystal', 'Toxic']}],
+  [89216, {mainName: 'Charm of Skill', altNames: ['Habilidad', 'Skill']}],
+  [89258, {mainName: 'Charm of Potence', altNames: ['Potencia', 'Potence']}],
+  [89103, {mainName: 'Charm of Brilliance', altNames: ['Brillantez', 'Brilliance']}],
+  [89141, {mainName: 'Símbolo de mejora', altNames: ['Mejora', 'Enha']}],
+  [89182, {mainName: 'Símbolo de dolor', altNames: ['Dolor', 'Pain']}],
   [89098, {mainName: 'Símbolo de control', altNames: ['Control']}],
-  [74326, {mainName: 'Sello superior de Transferencia', altNames: ['Transferencia']}],
-  [44944, {mainName: 'Sello superior de Estallido', altNames: ['Estallido']}],
-  [24562, {mainName: 'Símbolo de Fechorias', altNames: ['Fechorias']}],
-  [68436, {mainName: 'Sello superior de Fortaleza', altNames: ['Fortaleza']}],
-  [48911, {mainName: 'Sello superior de Tormento', altNames: ['Tormento']}],
-  [24609, {mainName: 'Sello superior de Condena', altNames: ['Condena']}],
-  [44950, {mainName: 'Sello superior de Malicia ', altNames: ['Malicia']}],
-  [24639, {mainName: 'Sello superior de Parálisis ', altNames: ['Paralisis']}],
-  [24800, {mainName: 'Runa superior de Elementalista ', altNames: ['Elementalista']}],
-  [24818, {mainName: 'Runa superior de ladrón', altNames: ['Ladrón', 'ladron']}],
-  [24830, {mainName: 'Runa superior de Aventurero', altNames: ['Aventurero']}],
-  [44956, {mainName: 'Runa superior de Tormento', altNames: ['Runa Tormento']}],
-  [24720, {mainName: 'Runa superior de Velocidad', altNames: ['Velocidad']}],
+  [74326, {mainName: 'Sello superior de Transferencia', altNames: ['Transferencia', 'Trans']}],
+  [44944, {mainName: 'Sello superior de Estallido', altNames: ['Estallido', 'Bursting']}],
+  [24562, {mainName: 'Sello superior de fechorías  ', altNames: ['Fechorias', 'Mischief']}],
+  [68436, {mainName: 'Sello superior de Fortaleza', altNames: ['Fortaleza', 'Strength']}],
+  [48911, {mainName: 'Sello superior de Tormento', altNames: ['Tormento', 'Torment']}],
+  [24609, {mainName: 'Sello superior de Condena', altNames: ['Condena', 'Doom']}],
+  [44950, {mainName: 'Sello superior de Malicia ', altNames: ['Malicia', 'Malice']}],
+  [24639, {mainName: 'Sello superior de Parálisis ', altNames: ['Paralisis', 'Paralyzation']}],
+  [24800, {mainName: 'Runa superior de Elementalista ', altNames: ['Elementalista', 'Elementalist']}],
+  [24818, {mainName: 'Runa superior de ladrón', altNames: ['Ladrón', 'ladron', 'thief']}],
+  [24830, {mainName: 'Runa superior de Aventurero', altNames: ['Aventurero', 'Adventurer']}],
+  [44956, {mainName: 'Runa superior de Tormento', altNames: ['Runa Tormento', 'STorment']}],
+  [24720, {mainName: 'Runa superior de Velocidad', altNames: ['Velocidad', 'Speed']}],
   [24836, {mainName: 'Runa superior de Erudito', altNames: ['Erudito', 'Schoolar']}],
-  [24833, {mainName: 'Runa superior del Pendenciero', altNames: ['Pendenciero']}],
-  [89999, {mainName: 'Runa superior de Fuegos Artificiales', altNames: ['Fuego']}],
+  [24833, {mainName: 'Runa superior del Pendenciero', altNames: ['Pendenciero', 'Brawler']}],
+  [89999, {mainName: 'Runa superior de Fuegos Artificiales', altNames: ['Fuego', 'Fireworks']}],
   [24762, {mainName: 'Runa superior del Krait', altNames: ['Krait']}],
-  [24839, {mainName: 'Runa superior del agua', altNames: ['agua']}],
+  [24839, {mainName: 'Runa superior del agua', altNames: ['agua', 'water']}],
   [49424, {mainName: '+1 Agony Infusion', altNames: ['+1']}],
   [49428, {mainName: '+5 Agony Infusion', altNames: ['+5']}],  
   [49429, {mainName: '+6 Agony Infusion', altNames: ['+6']}],
@@ -107,68 +107,68 @@ const itemsMap = new Map([
   [49438, {mainName: '+16 Agony Infusion', altNames: ['+16']}],
   [44941, {mainName: 'Watchwork Sprocket', altNames: ['Watchwork', 'Engranaje']}],
   [73248, {mainName: 'Stabilizing Matrix', altNames: ['Matrix']}],
-  [72339, {mainName: 'Sello superior de concentración', altNames: ['Vor']}],
-  [48884, {mainName: 'Pristine Toxic Spore', altNames: ['Espora', 'Pristine']}],
-  [92687, {mainName: 'Amalgamated Draconic Lodestone', altNames: ['Amal']}],
-  [24325, {mainName: 'Destroyer Lodestone', altNames: ['Destructor']}],
-  [24330, {mainName: 'Crystal Lodestone', altNames: ['Cristal']}],
+  [72339, {mainName: 'Sello superior de concentración', altNames: ['Vor', 'Vortus']}],
+  [48884, {mainName: 'Pristine Toxic Spore', altNames: ['Espora', 'Pristine', 'Spore']}],
+  [92687, {mainName: 'Amalgamated Draconic Lodestone', altNames: ['Amal', 'Draconic']}],
+  [24325, {mainName: 'Destroyer Lodestone', altNames: ['Destructor', 'Destroyer']}],
+  [24330, {mainName: 'Crystal Lodestone', altNames: ['Cristal', 'CrystalL']}],
   [70842, {mainName: 'Mordrem Lodestone', altNames: ['mordrem']}],
-  [24340, {mainName: 'Corrupted Lodestone', altNames: ['Corrupta']}],
-  [96193, {mainName: "Dragon's Wisdom", altNames: ["Sabiduría"]}],
-  [95814, {mainName: "Dragon's Insight", altNames: ["Visión"]}],
-  [96303, {mainName: "Dragon's Gaze", altNames: ["Mirada"]}],
-  [95834, {mainName: "Dragon's Flight", altNames: ["Vuelo", ]}],
-  [96915, {mainName: "Dragon's Argument", altNames: ["Argumento"]}],
-  [97267, {mainName: "Dragon's Persuasion", altNames: ["Persuasión",]}],
-  [96330, {mainName: "Dragon's Wing", altNames: ["Ala"]}],
-  [96925, {mainName: "Dragon's Breath", altNames: ["Aliento"]}],
-  [97513, {mainName: "Dragon's Voice", altNames: ["Voz"]}],
-  [97449, {mainName: "Dragon's Rending", altNames: ["Desgarramiento"]}],
-  [95967, {mainName: "Dragon's Claw", altNames: ["Garra"]}],
-  [96357, {mainName: "Dragon's Bite", altNames: ["Mordisco"]}],
-  [95920, {mainName: "Dragon's Weight", altNames: ["Peso"]}],
-  [96827, {mainName: "Dragon's Tail", altNames: ["Cola"]}],
-  [97691, {mainName: "Dragon's Scale", altNames: ["Escama"]}],
-  [95994, {mainName: "Dragon's Fang", altNames: ["colmillo"]}],
-  [100893, {mainName: "Relic of the Zephyrite", altNames: ['Zephyrite'] }],
-  [100455, {mainName: 'Relic of Durability', altNames: ['Durability'] }],
-  [100400, {mainName: 'Relic of the Sunless', altNames: ['Sunless'] }],
-  [100579, {mainName: 'Relic of the Nightmare', altNames: ['Nightmare'] }],
-  [100542, {mainName: 'Relic of the Cavalier', altNames: ['Cavalier'] }],
-  [100924, {mainName: 'Relic of the Deadeye', altNames: ['Deadeye'] }],
-  [100345, {mainName: 'Relic of the Daredevil', altNames: ['Daredevil'] }],
-  [100148, {mainName: 'Relic of Speed', altNames: ['Speed'] }],
-  [100368, {mainName: 'Relic of the Scourge', altNames: ['Scourge'] }],
-  [100048, {mainName: 'Relic of the Ice', altNames: ['Ice'] }],
-  [100561, {mainName: 'Relic of the Adventurer', altNames: ['Adventurer'] }],
-  [100947, {mainName: 'Relic of Fireworks', altNames: ['Fireworks'] }],
-  [100450, {mainName: 'Relic of the Chronomancer', altNames: ['Chronomancer'] }],
-  [100739, {mainName: 'Relic of the Reaper', altNames: ['Reaper'] }],
-  [100442, {mainName: 'Relic of Dwayna', altNames: ['Dwayna'] }],
-  [100934, {mainName: 'Relic of the Defender', altNames: ['Defender'] }],
-  [100144, {mainName: 'Relic of the Warrior', altNames: ['Warrior'] }],
-  [100527, {mainName: 'Relic of the Brawler', altNames: ['Brawler'] }],
-  [100219, {mainName: 'Relic of the Herald', altNames: ['Herald'] }],
-  [100194, {mainName: 'Relic of the Weaver', altNames: ['Weaver'] }],
-  [100625, {mainName: 'Relic of Leadership', altNames: ['Leadership'] }],
-  [100693, {mainName: 'Relic of the Afflicted', altNames: ['Afflicted'] }],
-  [100659, {mainName: 'Relic of the Water', altNames: ['Water'] }],
-  [100090, {mainName: 'Relic of the Dragonhunter', altNames: ['Dragonhunter'] }],
-  [100916, {mainName: 'Relic of the Thief', altNames: ['Thief'] }],
-  [100230, {mainName: 'Relic of the Krait', altNames: ['Krait'] }],
-  [100614, {mainName: 'Relic of Evasion', altNames: ['Evasion'] }],
-  [100158, {mainName: 'Relic of the Mirage', altNames: ['Mirage'] }],
-  [100849, {mainName: 'Relic of the Aristocracy', altNames: ['Aristocracy'] }],
-  [100429, {mainName: 'Relic of Mercy', altNames: ['Mercy'] }],
-  [100453, {mainName: 'Relic of the Firebrand', altNames: ['Firebrand'] }],
-  [100385, {mainName: 'Relic of the Centaur', altNames: ['Centaur'] }],
-  [100448, {mainName: 'Relic of the Citadel', altNames: ['Citadel'] }],
-  [100580, {mainName: 'Relic of the Necromancer', altNames: ['Necromancer'] }],
-  [100794, {mainName: 'Relic of Resistance', altNames: ['Resistance'] }],
-  [99965, {mainName: 'Relic of the Flock', altNames: ['Flock'] }],
-  [100031, {mainName: 'Relic of the Monk', altNames: ['Monk'] }],
-  [100390, {mainName: 'Relic of Antitoxin', altNames: ['Antitoxin'] }],
-  [100411, {mainName: 'Relic of the Trooper', altNames: ['Trooper'] }],
+  [24340, {mainName: 'Corrupted Lodestone', altNames: ['Corrupta', 'Corrupted']}],
+  [96193, {mainName: "Dragon's Wisdom", altNames: ["Sabiduría", 'DWisdom']}],
+  [95814, {mainName: "Dragon's Insight", altNames: ["Visión", 'DInsight']}],
+  [96303, {mainName: "Dragon's Gaze", altNames: ["Mirada", 'DGaze']}],
+  [95834, {mainName: "Dragon's Flight", altNames: ["Vuelo", 'DFlight']}],
+  [96915, {mainName: "Dragon's Argument", altNames: ["Argumento", 'Argument']}],
+  [97267, {mainName: "Dragon's Persuasion", altNames: ["Persuasión", 'DPersuasion']}],
+  [96330, {mainName: "Dragon's Wing", altNames: ["Ala", 'DWing']}],
+  [96925, {mainName: "Dragon's Breath", altNames: ["Aliento", 'DBreath']}],
+  [97513, {mainName: "Dragon's Voice", altNames: ["Voz", 'DVoice']}],
+  [97449, {mainName: "Dragon's Rending", altNames: ["Desgarramiento", 'DRending']}],
+  [95967, {mainName: "Dragon's Claw", altNames: ["Garra", 'DClaw']}],
+  [96357, {mainName: "Dragon's Bite", altNames: ["Mordisco", 'DBite']}],
+  [95920, {mainName: "Dragon's Weight", altNames: ["Peso", 'DWeight']}],
+  [96827, {mainName: "Dragon's Tail", altNames: ["Cola", 'DTail']}],
+  [97691, {mainName: "Dragon's Scale", altNames: ["Escama", 'DScale']}],
+  [95994, {mainName: "Dragon's Fang", altNames: ["colmillo", 'DFang']}],
+  [100893, {mainName: "Relic of the Zephyrite", altNames: ['RZephyrite'] }],
+  [100455, {mainName: 'Relic of Durability', altNames: ['RDurability'] }],
+  [100400, {mainName: 'Relic of the Sunless', altNames: ['RSunless'] }],
+  [100579, {mainName: 'Relic of the Nightmare', altNames: ['RNightmare'] }],
+  [100542, {mainName: 'Relic of the Cavalier', altNames: ['RCavalier'] }],
+  [100924, {mainName: 'Relic of the Deadeye', altNames: ['RDeadeye'] }],
+  [100345, {mainName: 'Relic of the Daredevil', altNames: ['RDaredevil'] }],
+  [100148, {mainName: 'Relic of Speed', altNames: ['RSpeed'] }],
+  [100368, {mainName: 'Relic of the Scourge', altNames: ['RScourge'] }],
+  [100048, {mainName: 'Relic of the Ice', altNames: ['RIce'] }],
+  [100561, {mainName: 'Relic of the Adventurer', altNames: ['RAdventurer'] }],
+  [100947, {mainName: 'Relic of Fireworks', altNames: ['RFireworks'] }],
+  [100450, {mainName: 'Relic of the Chronomancer', altNames: ['RChronomancer'] }],
+  [100739, {mainName: 'Relic of the Reaper', altNames: ['RReaper'] }],
+  [100442, {mainName: 'Relic of Dwayna', altNames: ['RDwayna'] }],
+  [100934, {mainName: 'Relic of the Defender', altNames: ['RDefender'] }],
+  [100144, {mainName: 'Relic of the Warrior', altNames: ['RWarrior'] }],
+  [100527, {mainName: 'Relic of the Brawler', altNames: ['RBrawler'] }],
+  [100219, {mainName: 'Relic of the Herald', altNames: ['RHerald'] }],
+  [100194, {mainName: 'Relic of the Weaver', altNames: ['RWeaver'] }],
+  [100625, {mainName: 'Relic of Leadership', altNames: ['RLeadership'] }],
+  [100693, {mainName: 'Relic of the Afflicted', altNames: ['RAfflicted'] }],
+  [100659, {mainName: 'Relic of the Water', altNames: ['RWater'] }],
+  [100090, {mainName: 'Relic of the Dragonhunter', altNames: ['RDragonhunter'] }],
+  [100916, {mainName: 'Relic of the Thief', altNames: ['RThief'] }],
+  [100230, {mainName: 'Relic of the Krait', altNames: ['RKrait'] }],
+  [100614, {mainName: 'Relic of Evasion', altNames: ['REvasion'] }],
+  [100158, {mainName: 'Relic of the Mirage', altNames: ['RMirage'] }],
+  [100849, {mainName: 'Relic of the Aristocracy', altNames: ['RAristocracy'] }],
+  [100429, {mainName: 'Relic of Mercy', altNames: ['RMercy'] }],
+  [100453, {mainName: 'Relic of the Firebrand', altNames: ['RFirebrand'] }],
+  [100385, {mainName: 'Relic of the Centaur', altNames: ['RCentaur'] }],
+  [100448, {mainName: 'Relic of the Citadel', altNames: ['RCitadel'] }],
+  [100580, {mainName: 'Relic of the Necromancer', altNames: ['RNecromancer'] }],
+  [100794, {mainName: 'Relic of Resistance', altNames: ['RResistance'] }],
+  [99965, {mainName: 'Relic of the Flock', altNames: ['RFlock'] }],
+  [100031, {mainName: 'Relic of the Monk', altNames: ['RMonk'] }],
+  [100390, {mainName: 'Relic of Antitoxin', altNames: ['RAntitoxin'] }],
+  [100411, {mainName: 'Relic of the Trooper', altNames: ['RTrooper'] }],
   [35986, {mainName:  'Bazar', altNames: ['express']}],
   [36038, {mainName:  'Trick-or-Treat Bag', altNames: ['tot']}],
   [99956, {mainName:  'Enchanted Music Box', altNames: ['music']}],
@@ -188,14 +188,14 @@ const excludedLegendaryItems = new Set([96978, 96722]);
 module.exports = {
   data: new SlashCommandBuilder()
     .setName('item')
-    .setDescription('Muestra el precio y la imagen de un objeto.')
+    .setDescription('Displays the price and image of an object.')
     .addStringOption(option =>
-      option.setName('objeto')
-        .setDescription('ID o nombre del objeto para obtener el precio y la imagen.')
+      option.setName('item')
+        .setDescription('ID or name of the object to obtain the price and the image.')
         .setRequired(true)),
   
   async execute(interaction) {
-    const input = interaction.options.getString('objeto');
+    const input = interaction.options.getString('item');
     let objetoId = null;
 
     // Verifica si el input es un número (ID) o una cadena (nombre)
@@ -208,7 +208,7 @@ module.exports = {
     try {
       // Verifica si se encontró la ID del objeto
       if (!objetoId || !itemsMap.has(objetoId)) {
-        await interaction.reply('No se encontró el objeto con ese ID o nombre.');
+        await interaction.reply('The object with that ID or name was not found.');
         return;
       }
 
@@ -222,7 +222,7 @@ module.exports = {
         const precioCompra = objeto.buys.unit_price;
 
         // Realiza una segunda solicitud a la API para obtener los detalles del objeto, incluido su nombre, rareza e imagen
-        const responseDetails = await axios.get(`https://api.guildwars2.com/v2/items/${objetoId}?lang=es`);
+        const responseDetails = await axios.get(`https://api.guildwars2.com/v2/items/${objetoId}?lang=en`);
         const objetoDetails = responseDetails.data;
 
         // Obtiene el nombre, la rareza y la imagen del objeto
@@ -256,13 +256,13 @@ module.exports = {
         }
 
         // Crea el mensaje de tipo Embed con los precios y el número de ectos requeridos
-        let description = `Precio de venta (Sell): ${calcularMonedas(precioVenta)}\n` +
-          `Precio de compra (Buy): ${calcularMonedas(precioCompra)}`;
+        let description = `Sell price (Sell): ${calcularMonedas(precioVenta)}\n` +
+          `Buy price (Buy): ${calcularMonedas(precioCompra)}`;
 
-        description += `\n\n**Precio al ${descuento * 100}%**: ${calcularMonedas(precioDescuento)}`;
+        description += `\n\n**Price at ${descuento * 100}%**: ${calcularMonedas(precioDescuento)}`;
 
         if (rarezaObjeto === 'Legendary' && !excludedLegendaryItems.has(objetoId) && ectosRequeridos !== null) {
-          description += `\n\n**Ectos a dar/recibir**: ${numStacksEctos} stack${numStacksEctos === 1 ? '' : 's'} y ${ectosAdicionales} adicionales (Total: ${ectosRequeridos} <:glob:1134942274598490292>)`;
+          description += `\n\n**Ectos to give/receive**: ${numStacksEctos} stack${numStacksEctos === 1 ? '' : '`s'} and ${ectosAdicionales} additional (Total: ${ectosRequeridos} <:glob:1134942274598490292>)`;
         }
 
         const ltcLink = `https://www.gw2bltc.com/en/item/${objetoId}`;
@@ -270,13 +270,13 @@ module.exports = {
 
         
         const embed = {
-          title: `Precio del objeto: ${nombreObjeto}`,
+          title: `Price of the item: ${nombreObjeto}`,
           description: description,
           color: 0x00ffff, // Color del borde del Embed (opcional, puedes cambiarlo o quitarlo)
           thumbnail: { url: `${iconURL}` },
           fields: [
             {
-              name: 'Enlace a GW2BLTC',
+              name: 'Link to GW2BLTC',
               value: `${ltcLink}`,
             },
             ],
@@ -284,11 +284,11 @@ module.exports = {
 
         await interaction.reply({ embeds: [embed] });
       } else {
-        await interaction.reply('El objeto no tiene un precio de venta válido en la API.');
+        await interaction.reply('The object does not have a valid selling price in the API.');
       }
     } catch (error) {
-      console.error('Error al realizar la solicitud a la API:', error.message);
-      await interaction.reply('¡Ups! Hubo un error al obtener el precio del objeto desde la API.');
+      console.error('Error when making the API request:', error.message);
+      await interaction.reply('Oops! There was an error getting the price of the object from the API.');
     }
   },
 };
@@ -299,7 +299,7 @@ module.exports = {
       const objetoDetails = response.data;
       return objetoDetails.icon;
     } catch (error) {
-      console.error('Error al obtener la URL del ícono desde la API:', error.message);
+      console.error('Error getting the icon URL from the API:', error.message);
       return null;
     }
   }
@@ -311,7 +311,7 @@ async function getPrecioEcto() {
     const ecto = response.data;
     return ecto.sells.unit_price;
   } catch (error) {
-    console.error('Error al obtener el precio de los ectos desde la API:', error.message);
+    console.error('Error when getting the price of the ectos from the API:', error.message);
     return null;
   }
 }

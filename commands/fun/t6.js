@@ -4,7 +4,7 @@ const { getGw2ApiData } = require('../utility/api.js'); // Ajusta la ruta según
 module.exports = {
   data: new SlashCommandBuilder()
     .setName('t6')
-    .setDescription('Calcula el precio total de los materiales T6.'),
+    .setDescription('Calculate the total price of materials T6.'),
 
   async execute(interaction) {
     const itemIds = [24295, 24358, 24351, 24357, 24289, 24300, 24283, 24277];
@@ -15,7 +15,7 @@ module.exports = {
 
       // Llama a la función para obtener el precio de venta de cada objeto
       await Promise.all(itemIds.map(async (itemId) => {
-      const objeto = await getGw2ApiData(`commerce/prices/${itemId}`, 'es');
+      const objeto = await getGw2ApiData(`commerce/prices/${itemId}`, 'en');
         if (objeto && objeto.sells) {
           totalPrecioVenta += objeto.sells.unit_price * stackSize;
         }
@@ -33,15 +33,15 @@ module.exports = {
       };
 
       const embed = {
-        title: 'Precio total de los materiales T6',
-        description: `El precio total al 100% de los materiales T6 es: ${calcularMonedas(totalPrecioVenta)}.\nEl precio total al 90% de los materiales T6 es: ${calcularMonedas(precioTotal90.toFixed(0))}.`,
+        title: 'Total price of materials T6',
+        description: `The total price at 100% of the T6 materials is: ${calcularMonedas(totalPrecioVenta)}.\nThe total price at 90% of the T6 materials is: ${calcularMonedas(precioTotal90.toFixed(0))}.`,
         color: 0xffc0cb, // Color del borde del Embed (opcional, puedes cambiarlo o quitarlo)
       };
 
       await interaction.reply({ embeds: [embed] });
     } catch (error) {
       console.error('Error al realizar la solicitud:', error.message);
-      await interaction.reply('¡Ups! Hubo un error al calcular el precio total de los materiales T6.');
+      await interaction.reply('Oops! There was an error in calculating the total price of T6 materials.');
     }
   },
 };

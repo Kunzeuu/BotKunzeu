@@ -5,55 +5,52 @@ const { getGw2ApiData } = require('../utility/api.js'); // Adjust the path accor
 module.exports = {
   data: new SlashCommandBuilder()
     .setName('ectos')
-    .setDescription('Muestra el precio de venta y compra de Ectos.')
+    .setDescription('Displays the selling and buying price of Ectos.')
     .addIntegerOption(option =>
-      option.setName('cantidad')
-        .setDescription('Cantidad de Ectos para calcular el precio.')
+      option.setName('quantity')
+        .setDescription('Quantity of Ectos to calculate the price.')
         .setRequired(true)),
   async execute(interaction) {
-    const cantidadEctos = interaction.options.getInteger('cantidad');
+    const ectosQuantity = interaction.options.getInteger('quantity');
 
-    if (cantidadEctos <= 0) {
-      await interaction.reply('La cantidad de Ectos debe ser mayor que 0.');
+    if (ectosQuantity <= 0) {
+      await interaction.reply('The quantity of Ectos must be greater than 0.');
       return;
     }
 
     try {
-      const precioEcto = await getPrecioEcto();
-      const precioCompra = await getPrecioCompra();
-      const cantidadEnMercado = await getCantidadEnMercado();
+      const ectoPrice = await getEctoPrice();
+      const buyPrice = await getBuyPrice();
+      const marketQuantity = await getMarketQuantity();
 
+      if (ectoPrice !== null && buyPrice !== null) {
+        const totalPrice = ectosQuantity * ectoPrice * 0.9;
+        const ectoPrice90 = Math.floor(ectoPrice * 0.9);
 
-      if (precioEcto !== null && precioCompra !== null) {
-        const precioTotal = cantidadEctos * precioEcto * 0.9;
-        const precioEcto90 = Math.floor(precioEcto * 0.9);
-
-        const calcularMonedas = (precio) => {
-          const oro = Math.floor(precio / 10000);
-          const plata = Math.floor((precio % 10000) / 100);
-          const cobre = parseInt(precio % 100);
-          return `${oro} <:gold:1134754786705674290> ${plata} <:silver:1134756015691268106> ${cobre} <:Copper:1134756013195661353>`;
+        const calculateCoins = (price) => {
+          const gold = Math.floor(price / 10000);
+          const silver = Math.floor((price % 10000) / 100);
+          const copper = parseInt(price % 100);
+          return `${gold} <:gold:1134754786705674290> ${silver} <:silver:1134756015691268106> ${copper} <:Copper:1134756013195661353>`;
         };
 
-        let description = `Precio de venta de 1 Ecto: ${calcularMonedas(precioEcto)}`;
-        description += `\nPrecio de compra de 1 Ecto: ${calcularMonedas(precioCompra)}`;
-        description += `\n\n**Precio Ecto al 90%: ${calcularMonedas(precioEcto90)}**`;
-        description += `\n\n\n**_Precio de ${cantidadEctos} Ectos al 90%: ${calcularMonedas(precioTotal)}_**`;
-        description += `\n\n**Cantidad en el mercado: ${cantidadEnMercado} unidades**`;
-
-
+        let description = `Sell price of 1 Ecto: ${calculateCoins(ectoPrice)}`;
+        description += `\nBuy price of 1 Ecto: ${calculateCoins(buyPrice)}`;
+        description += `\n\n**Ecto price at 90%: ${calculateCoins(ectoPrice90)}**`;
+        description += `\n\n\n**_Price of ${ectosQuantity} Ectos at 90%: ${calculateCoins(totalPrice)}_**`;
+        description += `\n\n**Quantity on the market: ${marketQuantity} units**`;
 
         const ltcLink = `https://www.gw2bltc.com/en/item/19721`;
-        const iconURL = await getIconURL('https://api.guildwars2.com/v2/items/19721');    
+        const iconURL = await getIconURL('https://api.guildwars2.com/v2/items/19721');
 
         const embed = {
-          title: `Precio de venta de Ectos`,
+          title: `Sell Price of Ectos`,
           description: description,
           color: 0xffff00,
           thumbnail: { url: `${iconURL}` },
           fields: [
             {
-              name: 'Enlace a GW2BLTC',
+              name: 'Link to GW2BLTC',
               value: `${ltcLink}`,
             },
           ],
@@ -61,62 +58,61 @@ module.exports = {
 
         await interaction.reply({ embeds: [embed] });
       } else {
-        await interaction.reply('No se pudo obtener el precio de venta o compra de 1 Ecto desde la API.');
+        await interaction.reply('Failed to fetch the selling or buying price of 1 Ecto from the API.');
       }
     } catch (error) {
-      console.error('Error al realizar la solicitud a la API:', error.message);
-      await interaction.reply('¡Ups! Hubo un error al obtener el precio de venta o compra de Ectos desde la API.');
+      console.error('Error while making API request:', error.message);
+      await interaction.reply('Oops! There was an error fetching the selling or buying price of Ectos from the API.');
     }
   },
 };
 
-async function getIconURL(objetoId) {
+async function getIconURL(itemId) {
   try {
-    const response = await axios.get(objetoId);
-    const objetoDetails = response.data;
-    return objetoDetails.icon;
+    const response = await axios.get(itemId);
+    const itemDetails = response.data;
+    return itemDetails.icon;
   } catch (error) {
-    console.error('Error al obtener la URL del ícono desde la API:', error.message);
+    console.error('Error fetching icon URL from API:', error.message);
     return null;
   }
 }
 
-async function getCantidadEnMercado() {
+async function getMarketQuantity() {
   try {
     const response = await axios.get('https://api.guildwars2.com/v2/commerce/prices/19721');
-    const mercado = response.data;
+    const market = response.data;
 
-    if (mercado && mercado.sells && mercado.buys) {
-      const cantidadSells = mercado.sells.quantity;
-     // const cantidadBuys = mercado.buys.quantity;
-      return cantidadSells;
+    if (market && market.sells && market.buys) {
+      const sellsQuantity = market.sells.quantity;
+      return sellsQuantity;
     } else {
       return null;
     }
   } catch (error) {
-    console.error('Error al obtener la cantidad en el mercado de Ectoplasmas desde la API:', error.message);
+    console.error('Error fetching market quantity of Ectos from API:', error.message);
     return null;
   }
 }
 
-async function getPrecioEcto() {
+async function getEctoPrice() {
   try {
     const response = await axios.get('https://api.guildwars2.com/v2/commerce/prices/19721');
     const ecto = response.data;
     return ecto.sells.unit_price;
   } catch (error) {
-    console.error('Error al obtener el precio de venta de 1 Ecto desde la API:', error.message);
+    console.error('Error fetching selling price of 1 Ecto from API:', error.message);
     return null;
   }
 }
 
-async function getPrecioCompra() {
+async function getBuyPrice() {
   try {
     const response = await axios.get('https://api.guildwars2.com/v2/commerce/prices/19721');
     const ecto = response.data;
     return ecto.buys.unit_price;
   } catch (error) {
-    console.error('Error al obtener el precio de compra de 1 Ecto desde la API:', error.message);
+    console.error('Error fetching buying price of 1 Ecto from API:', error.message);
     return null;
   }
 }

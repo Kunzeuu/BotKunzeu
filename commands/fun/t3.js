@@ -4,44 +4,44 @@ const axios = require('axios');
 module.exports = {
   data: new SlashCommandBuilder()
     .setName('t3')
-    .setDescription('Calcula el precio total de los materiales T3.'),
+    .setDescription('Calculate the total price of T3 materials.'),
 
   async execute(interaction) {
     const itemIds = [24292, 24280, 24298, 24274, 24354, 24286, 24348, 24344];      
     const stackSize = 250;
     try {
-      let totalPrecioVenta = 0;
+      let totalSellPrice = 0;
 
-      // Realiza la solicitud a la API para obtener el precio de venta de cada objeto
+      // Make request to the API to get the sell price of each item
       await Promise.all(itemIds.map(async (itemId) => {
         const response = await axios.get(`https://api.guildwars2.com/v2/commerce/prices/${itemId}`);
-        const objeto = response.data;
-        if (objeto && objeto.sells) {
-          totalPrecioVenta += objeto.sells.unit_price * stackSize;
+        const item = response.data;
+        if (item && item.sells) {
+          totalSellPrice += item.sells.unit_price * stackSize;
         }
       }));
 
-      // Calcula el 90% del precio total
-      const precioTotal90 = totalPrecioVenta * 0.9;
+      // Calculate 90% of the total price
+      const totalPrice90 = totalSellPrice * 0.9;
 
-      // Calcula el número de monedas (oro, plata y cobre) y agrega los emotes correspondientes
-      const calcularMonedas = (precio) => {
-        const oro = Math.floor(precio / 10000);
-        const plata = Math.floor((precio % 10000) / 100);
-        const cobre = precio % 100;
-        return `${oro} <:gold:1134754786705674290> ${plata} <:silver:1134756015691268106> ${cobre} <:Copper:1134756013195661353>`;
+      // Calculate the number of coins (gold, silver, and copper) and add corresponding emotes
+      const calculateCoins = (price) => {
+        const gold = Math.floor(price / 10000);
+        const silver = Math.floor((price % 10000) / 100);
+        const copper = price % 100;
+        return `${gold} <:gold:1134754786705674290> ${silver} <:silver:1134756015691268106> ${copper} <:Copper:1134756013195661353>`;
       };
 
       const embed = {
-        title: 'Precio total de los materiales T3',
-        description: `El precio total al 100% de los materiales T3 es: ${calcularMonedas(totalPrecioVenta)}.\nEl precio total al 90% de los materiales T3 es: ${calcularMonedas(precioTotal90.toFixed(0))}.`,
-        color: 0xffa500, // Color del borde del Embed (opcional, puedes cambiarlo o quitarlo)
+        title: 'Total Price of T3 Materials',
+        description: `The total price at 100% of T3 materials is: ${calculateCoins(totalSellPrice)}.\nThe total price at 90% of T3 materials is: ${calculateCoins(totalPrice90.toFixed(0))}.`,
+        color: 0xffa500, // Embed border color (optional, you can change it or remove it)
       };
 
       await interaction.reply({ embeds: [embed] });
     } catch (error) {
-      console.error('Error al realizar la solicitud:', error.message);
-      await interaction.reply('¡Ups! Hubo un error al calcular el precio total de los materiales T3.');
+      console.error('Error making request:', error.message);
+      await interaction.reply('Oops! There was an error calculating the total price of T3 materials.');
     }
   },
 };
